@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Safari Kid - Register Student</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; background-color: #f0f2f5; margin-top: 50px; }
+        .container { background: white; padding: 30px; display: inline-block; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 400px; }
+        h1 { color: #1a73e8; margin-bottom: 10px; }
+        p { color: #5f6368; margin-bottom: 25px; }
+        input { padding: 12px; width: 85%; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; }
+        button { background-color: #34a853; color: white; padding: 12px 25px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; width: 92%; margin-top: 15px; transition: background 0.3s; }
+        button:hover { background-color: #2d8e47; }
+        .back-link { margin-top: 20px; display: block; color: #1a73e8; text-decoration: none; font-size: 14px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Register Student</h1>
+        <p>Enter details to add a student to the system.</p>
+        
+        <form action="/add_student" method="post">
+            <!-- Student ID -->
+            <input type="text" name="sid" placeholder="Student ID (e.g. 101)" required autofocus>
+            
+            <!-- Full Name -->
+            <input type="text" name="name" placeholder="Full Name" required>
+            
+            <!-- Parent Email -->
+            <input type="email" name="email" placeholder="Parent Email Address" required>
+            
+            <!-- NEW: Classroom Assignment -->
+            <input type="text" name="classroom" placeholder="Classroom (e.g. Pre-K, Toddlers)" required>
+            
+            <button type="submit">Complete Registration</button>
+        </form>
+
+        <a href="/" class="back-link">← Cancel and Go Back</a>
+    </div>
+</body>
+</html>

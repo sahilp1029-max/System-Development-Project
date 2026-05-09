@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Safari Kid - Billing</title>
+    <style>
+        body { font-family: sans-serif; margin: 40px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .total { font-size: 24px; font-weight: bold; margin-top: 20px; color: green; }
+    </style>
+</head>
+<body>
+    <h1>Billing Statement: {{ name }}</h1>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Hours</th>
+            <th>Cost ($15/hr)</th>
+        </tr>
+        {% for item in logs %}
+        <tr>
+            <td>{{ item.date }}</td>
+            <td>{{ item.duration }}</td>
+            <td>${{ item.cost }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p class="total">Total Balance Due: ${{ total }}</p>
+    <a href="/">Back to Dashboard</a>
+</body>
+</html>

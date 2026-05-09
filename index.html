@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Safari Kid - Burlington Dashboard</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; background-color: #f0f2f5; margin-top: 50px; }
+        .container { background: white; padding: 30px; display: inline-block; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 400px; }
+        h1 { color: #1a73e8; margin-bottom: 5px; }
+        h3 { color: #5f6368; font-weight: normal; margin-bottom: 25px; }
+        input { padding: 12px; width: 85%; margin: 15px 0; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; }
+        button { background-color: #1a73e8; color: white; padding: 12px 25px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; width: 92%; transition: background 0.3s; }
+        button:hover { background-color: #1557b0; }
+        .links { margin-top: 25px; border-top: 1px solid #eee; padding-top: 20px; }
+        a { color: #5f6368; text-decoration: none; font-weight: bold; display: block; margin: 12px 0; font-size: 14px; }
+        a:hover { color: #1a73e8; }
+        .admin-link { color: #d93025; } /* Makes the admin link stand out slightly */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Safari Kid</h1>
+        <h3>Attendance & Billing Portal</h3>
+        
+        <!-- Main Form for Parents/Staff -->
+        <form action="/checkin" method="post">
+            <input type="text" name="sid" placeholder="Enter Student ID" required autofocus>
+            <br>
+            <button type="submit">Check In / Out</button>
+        </form>
+
+        <div class="links">
+            <a href="/register">Register a New Student</a>
+            
+            <!-- Teacher Roster Link -->
+            <a href="javascript:void(0);" onclick="checkTeacherCode()">View Live Teacher Roster</a>
+            
+            <!-- Admin Billing Link -->
+            <a href="javascript:void(0);" onclick="checkAdminBilling()" class="admin-link">Master Billing Ledger (Admin)</a>
+        </div>
+    </div>
+
+    <script>
+    // Handles access to the Live Roster
+    function checkTeacherCode() {
+        let code = prompt("Please enter the Teacher Passcode:");
+        if (code != null && code != "") {
+            window.location.href = "/roster?code=" + code;
+        }
+    }
+
+    // Handles access to the Master Billing Ledger
+    function checkAdminBilling() {
+        let code = prompt("Please enter the Admin Passcode:");
+        if (code != null && code != "") {
+            window.location.href = "/admin/billing?code=" + code;
+        }
+    }
+    </script>
+</body>
+</html>
